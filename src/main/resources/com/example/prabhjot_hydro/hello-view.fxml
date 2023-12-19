@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prabhjot_hydro.HelloController">
+    <VBox alignment="CENTER" spacing="10">
+        <padding>
+            <Insets bottom="10" left="10" right="10" top="10" />
+        </padding>
+
+        <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="PJNS Hydro Inc." textAlignment="CENTER" textFill="#389e7c">
+         <font>
+            <Font name="Arial Narrow" size="74.0" />
+         </font></Label>
+
+        <VBox spacing="5">
+            <Label text="Account Number:" />
+            <TextField fx:id="tfAccountNumber" promptText="Enter Account Number (e.g., TH1234)" />
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Hydro Consumption Units:" />
+            <TextField fx:id="tfHydroUnits" promptText="Enter Hydro Consumption Units (e.g., 230)" />
+        </VBox>
+
+        <HBox spacing="10">
+            <Label text="Season:" />
+            <RadioButton fx:id="rbSummer" text="Summer">
+            <toggleGroup>
+               <ToggleGroup fx:id="seasonToggleGroup" />
+            </toggleGroup></RadioButton>
+            <RadioButton fx:id="rbWinter" text="Winter" toggleGroup="$seasonToggleGroup" />
+            <RadioButton fx:id="rbFall" text="Fall" toggleGroup="$seasonToggleGroup" />
+        </HBox>
+
+        <Button fx:id="btnGetEstimate" onAction="#onGetEstimateClick" text="Get Estimate" />
+        <Label fx:id="lblEstimate" />
+
+        <TableView fx:id="tableHydroData">
+            <columns>
+                <TableColumn fx:id="colAccountNumber" text="Account Number" />
+                <TableColumn fx:id="colHydroUnits" text="Hydro Units" />
+                <TableColumn fx:id="colSeason" text="Season" />
+                <TableColumn fx:id="colEstimate" text="Estimate" />
+            </columns>
+        </TableView>
+    </VBox>
+</AnchorPane>
